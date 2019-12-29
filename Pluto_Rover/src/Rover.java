@@ -43,7 +43,13 @@ public class Rover {
   }
 
   private void rotate(int i) {
+    Orientation[] orientations = Orientation.values();
+    int numOfOrientation = orientations.length;
 
+    int orientationIndex = this.orientation.ordinal();
+    int newIndex = (orientationIndex + i + numOfOrientation) % numOfOrientation;
+
+    this.orientation = orientations[newIndex];
   }
 
   private void move(int i) {
