@@ -23,10 +23,14 @@ public class Rover {
     for (char c : command.toCharArray()) {
       switch (c) {
         case 'F':
-          move(1);
+          if (!move(1)) {
+            break loop;
+          }
           break;
         case 'B':
-          move(-1);
+          if (!move(-1)) {
+            break loop;
+          }
           break;
         case 'L':
           rotate(-1);
@@ -52,7 +56,7 @@ public class Rover {
     this.orientation = orientations[newIndex];
   }
 
-  private void move(int i) {
+  private boolean move(int i) {
     int height = pluto.getHeight();
     int width = pluto.getWidth();
 
@@ -83,7 +87,9 @@ public class Rover {
       this.currLocation.x = oldX;
       this.currLocation.y = oldY;
       detectedObstacle(obstacle);
+      return false;
     }
+    return true;
   }
 
   private void detectedObstacle(Obstacles obstacle) {
