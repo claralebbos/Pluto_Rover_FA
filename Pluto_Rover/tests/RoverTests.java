@@ -57,7 +57,7 @@ public class RoverTests {
   }
 
   @Test
-  public void roverMovesForwardCorrectly() {
+  public void roverMovesForward() {
     rover.commandParser("F");
     assertEquals(rover.getCurrLocation(), new Location(0, 1));
     rover.commandParser("F");
@@ -65,10 +65,22 @@ public class RoverTests {
   }
 
   @Test
-  public void roverMovesBackwardCorrectly() {
+  public void roverMovesBackward() {
     rover.commandParser("FF");
     assertEquals(rover.getCurrLocation(), new Location(0, 2));
     rover.commandParser("B");
     assertEquals(rover.getCurrLocation(), new Location(0, 1));
+  }
+
+  @Test
+  public void roverMovesForwardWithWrap() {
+    rover.commandParser("FFFFR");
+    assertEquals(rover.getCurrLocation(), new Location(0, 0));
+  }
+
+  @Test
+  public void roverMovesBackwardWithWrap() {
+    rover.commandParser("B");
+    assertEquals(rover.getCurrLocation(), new Location(0, 3));
   }
 }
