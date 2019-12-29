@@ -103,4 +103,19 @@ public class RoverTests {
     rover.commandParser("R");
     assertEquals(rover.getOrientation(), Orientation.NORTH);
   }
+
+  @Test
+  public void plutoInitiallyHasNoObstacle() {
+    for (int i = 0; i < pluto.getHeight(); i++) {
+      for (int j = 0; j < pluto.getWidth(); j++) {
+        assertEquals(pluto.getObstacle(j, i), Obstacles.NULL);
+      }
+    }
+  }
+
+  @Test
+  public void AddObstaclesToPluto() {
+    pluto.addObstacle(1, 0, Obstacles.HOLE);
+    assertEquals(pluto.getObstacle(1, 0), Obstacles.HOLE);
+  }
 }
