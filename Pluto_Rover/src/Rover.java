@@ -55,6 +55,10 @@ public class Rover {
   private void move(int i) {
     int height = pluto.getHeight();
     int width = pluto.getWidth();
+
+    int oldX = this.currLocation.x;
+    int oldY = this.currLocation.y;
+
     switch (this.orientation) {
       case NORTH:
         this.currLocation.y = (currLocation.y + i) % height;
@@ -73,6 +77,18 @@ public class Rover {
     if (this.currLocation.y < 0) {
       this.currLocation.y = height + this.currLocation.y;
     }
+
+    Obstacles obstacle = pluto.getObstacle(this.currLocation.x, this.currLocation.y);
+    if (obstacle != Obstacles.NULL) {
+      this.currLocation.x = oldX;
+      this.currLocation.y = oldY;
+      detectedObstacle(obstacle);
+    }
+  }
+
+  private void detectedObstacle(Obstacles obstacle) {
+    System.out.println("An Obstacle of type " + obstacle +
+        " has been encountered at location" + getCurrLocation());
   }
 
 

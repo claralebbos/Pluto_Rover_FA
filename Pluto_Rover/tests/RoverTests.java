@@ -118,4 +118,13 @@ public class RoverTests {
     pluto.addObstacle(1, 0, Obstacles.HOLE);
     assertEquals(pluto.getObstacle(1, 0), Obstacles.HOLE);
   }
+
+  @Test
+  public void roverStopsAtObstacle() {
+    pluto.addObstacle(0, 2, Obstacles.HOLE);
+    rover.commandParser("FF");
+    assertEquals(rover.getCurrLocation(), new Location(0, 1));
+    assertEquals("An Obstacle of type HOLE has been encountered at location{x=0, y=1}\n",
+        out.toString());
+  }
 }
