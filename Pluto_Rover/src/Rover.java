@@ -47,6 +47,22 @@ public class Rover {
   }
 
   private void move(int i) {
+    int height = pluto.getHeight();
+    int width = pluto.getWidth();
+    switch (this.orientation) {
+      case NORTH:
+        this.currLocation.y = (currLocation.y + i) % height;
+        break;
+      case EAST:
+        this.currLocation.x = (currLocation.x + i) % width;
+        break;
+      case SOUTH:
+        this.currLocation.y = (currLocation.y - i) % height;
+        break;
+      case WEST:
+        this.currLocation.x = (currLocation.x - i) % width;
+        break;
+    }
 
   }
 

@@ -55,4 +55,20 @@ public class RoverTests {
     assertEquals("Invalid Command J\n",
         out.toString());
   }
+
+  @Test
+  public void roverMovesForwardCorrectly() {
+    rover.commandParser("F");
+    assertEquals(rover.getCurrLocation(), new Location(0, 1));
+    rover.commandParser("F");
+    assertEquals(rover.getCurrLocation(), new Location(0, 2));
+  }
+
+  @Test
+  public void roverMovesBackwardCorrectly() {
+    rover.commandParser("FF");
+    assertEquals(rover.getCurrLocation(), new Location(0, 2));
+    rover.commandParser("B");
+    assertEquals(rover.getCurrLocation(), new Location(0, 1));
+  }
 }
