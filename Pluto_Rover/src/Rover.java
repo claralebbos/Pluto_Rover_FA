@@ -82,7 +82,8 @@ public class Rover {
       this.currLocation.y = height + this.currLocation.y;
     }
 
-    Obstacles obstacle = pluto.getObstacle(this.currLocation.x, this.currLocation.y);
+    Obstacles obstacle = pluto.getObstacle(this.currLocation.x,
+        this.currLocation.y);
     if (obstacle != Obstacles.NULL) {
       this.currLocation.x = oldX;
       this.currLocation.y = oldY;

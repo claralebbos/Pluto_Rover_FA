@@ -13,7 +13,6 @@ public class RoverTests {
   Rover rover = new Rover(pluto);
 
   //Output
-
   private final ByteArrayOutputStream out = new ByteArrayOutputStream();
   private final ByteArrayOutputStream err = new ByteArrayOutputStream();
   private final PrintStream originalOut = System.out;
@@ -124,8 +123,8 @@ public class RoverTests {
     pluto.addObstacle(0, 2, Obstacles.HOLE);
     rover.commandParser("FF");
     assertEquals(rover.getCurrLocation(), new Location(0, 1));
-    assertEquals("An Obstacle of type HOLE has been encountered at location{x=0, y=1}\n",
-        out.toString());
+    assertEquals("An Obstacle of type HOLE has been encountered at " +
+            "location{x=0, y=1}\n", out.toString());
   }
 
   @Test
@@ -133,7 +132,7 @@ public class RoverTests {
     pluto.addObstacle(0, 2, Obstacles.HOLE);
     rover.commandParser("FFF");
     assertEquals(rover.getCurrLocation(), new Location(0, 1));
-    assertEquals("An Obstacle of type HOLE has been encountered at location{x=0, y=1}\n",
-        out.toString());
+    assertEquals("An Obstacle of type HOLE has been encountered at " +
+            "location{x=0, y=1}\n", out.toString());
   }
 }

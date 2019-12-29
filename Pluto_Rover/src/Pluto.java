@@ -33,7 +33,8 @@ public class Pluto {
     int plutoWidth = this.getWidth();
     Obstacles[][] plutoGrid = this.getPlutoGrid();
 
-    return plutoGrid[(x + plutoWidth) % plutoWidth][(y + plutoHeight) % plutoHeight];
+    return plutoGrid[(x + plutoWidth) % plutoWidth][(y + plutoHeight) %
+        plutoHeight];
   }
 
   public Obstacles[][] addObstacle(int x, int y, Obstacles obstacles) {
