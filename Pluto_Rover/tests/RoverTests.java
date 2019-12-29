@@ -83,4 +83,24 @@ public class RoverTests {
     rover.commandParser("B");
     assertEquals(rover.getCurrLocation(), new Location(0, 3));
   }
+
+  @Test
+  public void roverRotatesLeft() {
+    rover.commandParser("L");
+    assertEquals(rover.getOrientation(), Orientation.WEST);
+    rover.commandParser("L");
+    assertEquals(rover.getOrientation(), Orientation.SOUTH);
+  }
+
+  @Test
+  public void roverRotatesRight() {
+    rover.commandParser("R");
+    assertEquals(rover.getOrientation(), Orientation.EAST);
+    rover.commandParser("R");
+    assertEquals(rover.getOrientation(), Orientation.SOUTH);
+    rover.commandParser("R");
+    assertEquals(rover.getOrientation(), Orientation.WEST);
+    rover.commandParser("R");
+    assertEquals(rover.getOrientation(), Orientation.NORTH);
+  }
 }
