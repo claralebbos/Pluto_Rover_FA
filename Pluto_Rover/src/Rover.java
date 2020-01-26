@@ -78,6 +78,7 @@ public class Rover {
         break;
     }
 
+
     if (this.currLocation.y < 0) {
       this.currLocation.y = height + this.currLocation.y;
     }
